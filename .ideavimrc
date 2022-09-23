@@ -1,0 +1,39 @@
+set clipboard = unnamedplus
+
+let mapleader = " "
+set visualbell
+set showmode
+set incsearch hlsearch
+set ignorecase smartcase
+set incsearch
+set smartcase
+set timeoutlen = 300
+set number
+set relativenumber
+set scrolloff = 10
+set guicursor = false
+
+nnoremap <Space>sv  :source ~/.ideavimrc<CR>
+nnoremap <leader>ff :action FindInPath<cr>
+nnoremap <leader>fu :action FindUsages<cr>
+nnoremap <leader>gd :action GotoDeclaration<cr>
+nnoremap <leader>gi :action GotoImplementation<cr>
+nnoremap <leader>gt :action GotoTypeDeclaration<cr>
+nnoremap <leader>oi :action OptimizeImports<cr>
+nnoremap <leader>q  :action CloseActiveTab<cr>
+nnoremap <leader>de :action ShowErrorDescription<cr>
+nnoremap <S-h>      :action PreviousTab<cr>
+nnoremap <S-l>      :action NextTab<cr>
+nnoremap K          :action QuickJavaDoc<cr>
+nnoremap D          :action QuickImplementations<cr>
+
+inoremap jk <Esc>
+
+vnoremap jk <Esc>
+vnoremap <A-j> :m .+1<cr>==
+vnoremap <A-k> :m .-1<cr>==
+
+xnoremap J :move '>+1<cr>gv-gv
+xnoremap K :move '<-2<cr>gv-gv
+xnoremap <A-j> :move '>+1<cr>gv-gv
+xnoremap <A-k> :move '<-2<cr>gv-gv
