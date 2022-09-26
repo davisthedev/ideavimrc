@@ -1,4 +1,5 @@
-set clipboard = unnamedplus
+set clipboard+=unnamed
+set clipboard+=ideaput
 
 let mapleader = " "
 set visualbell
@@ -12,16 +13,57 @@ set number
 set relativenumber
 set scrolloff = 10
 set guicursor = false
+set ideajoin
+set idearefactormode=keep
 
-nnoremap <Space>sv  :source ~/.ideavimrc<CR>
+nnoremap <C-z>      :action ToggleDistractionFreeMode<cr>
+nnoremap <Space>sv  :source ~/.ideavimrc<cr>
+
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+nnoremap <Leader>en :action EditSourceInNewWindow<CR>
+nnoremap <Leader>n :action NextWindow<CR>
+nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <Leader>qa :action CloseAllEditors<CR>
+
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+
+nnoremap <leader>c :action CommentByLineComment<CR>
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Leader>=  :action ReformatCode<CR>
+nnoremap <leader>o :action OptimizeImports<CR>
+nnoremap <c-r> :action RecentFiles<CR>
+nnoremap <leader>l :action RecentLocations<CR>
+nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+
 nnoremap <leader>ff :action FindInPath<cr>
 nnoremap <leader>fu :action FindUsages<cr>
 nnoremap <leader>gd :action GotoDeclaration<cr>
 nnoremap <leader>gi :action GotoImplementation<cr>
+nnoremap <leader>gc :action GotoClass<cr>
 nnoremap <leader>gt :action GotoTypeDeclaration<cr>
+nnoremap <leader>gb :action Back<cr>
+nnoremap <leader>gf :action Forward<cr>
 nnoremap <leader>oi :action OptimizeImports<cr>
 nnoremap <leader>q  :action CloseActiveTab<cr>
 nnoremap <leader>de :action ShowErrorDescription<cr>
+
+
 nnoremap <S-h>      :action PreviousTab<cr>
 nnoremap <S-l>      :action NextTab<cr>
 nnoremap K          :action QuickJavaDoc<cr>
