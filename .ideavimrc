@@ -1,3 +1,6 @@
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+
 set clipboard+=unnamed
 set clipboard+=ideaput
 
@@ -29,6 +32,8 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
+
+nnoremap <C-t>  :NERDTreeToggle<cr>
 
 nnoremap <leader>en :action EditSourceInNewWindow<CR>
 nnoremap <leader>n :action NextWindow<CR>
@@ -69,6 +74,7 @@ nnoremap <S-h>      :action PreviousTab<cr>
 nnoremap <S-l>      :action NextTab<cr>
 nnoremap K          :action QuickJavaDoc<cr>
 nnoremap D          :action QuickImplementations<cr>
+nnoremap E          :action ShowErrorDescription<cr>
 
 inoremap jk <Esc>
 
