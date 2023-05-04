@@ -1,26 +1,61 @@
 Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
 
 set clipboard+=unnamed
 set clipboard+=ideaput
 
 let mapleader = " "
+
+set nu
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set visualbell
 set showmode
-set incsearch hlsearch
-set ignorecase smartcase
+set hlsearch
+set ignorecase
+set smartcase
 set incsearch
 set smartcase
 set timeoutlen = 300
+set updatetime=50
 set number
+set showmode
 set relativenumber
 set scrolloff = 10
 set guicursor = false
 set ideajoin
 set idearefactormode=keep
+set wrap=false
+set smartindent
+
+" Use Q for formatting the current paragraph (or visual selection)
+vmap Q gq
+nmap Q gqap
+
+" Closing tabs
+nmap <leader>q :action CloseContent<cr>
+nmap <leader>Q :action ReopenClosedTab<cr>
 
 nnoremap <C-z>      :action ToggleDistractionFreeMode<cr>
 nnoremap <Space>sv  :source ~/.ideavimrc<cr>
+
+" Switch projects
+nmap <leader>ww :action NextProjectWindow<cr>
+
+" Splits manipulation
+nmap <leader>ws :action SplitHorizontally<cr>
+nmap <leader>wv :action SplitVertically<cr>
+nmap <leader>wc :action Unsplit<cr>
+nmap <leader>wC :action UnsplitAll<cr>
+nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
+
+nnoremap <leader>s :%s//g<Left><Left>
+
+" vnoremap J :m '>+1<CR>gv=gv'
+" vnoremap K :m '<-2<CR>gv=gv'
+vnoremap J :m '>+1<CR>
+vnoremap K :m '<-2<CR>
+
 
 nnoremap <c-\> :action SplitVertically<CR>
 nnoremap <c--> :action SplitHorizontally<CR>
@@ -33,8 +68,6 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 
-nnoremap <C-t>  :NERDTreeToggle<cr>
-
 nnoremap <leader>en :action EditSourceInNewWindow<CR>
 nnoremap <leader>n :action NextWindow<CR>
 nnoremap <leader>qc :action CloseContent<CR>
@@ -46,43 +79,36 @@ vnoremap > >gv
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
-nnoremap <leader>c :action CommentByLineComment<CR>
 nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
-nnoremap <Leader>=  :action ReformatCode<CR>
+nnoremap <Leader>F  :action ReformatCode<CR>
 nnoremap <leader>o :action OptimizeImports<CR>
-nnoremap <c-r> :action RecentFiles<CR>
+nnoremap <leader>? :action RecentFiles<CR>
 
-nnoremap <leader>l :action RecentLocations<CR>
-nnoremap <leader>h  :action LocalHistory.ShowHistory<CR>
-nnoremap ge :action GotoNextError<CR>
-nnoremap gE :action GotoPreviousError<CR>
+nnoremap [d :action GotoNextError<CR>
+nnoremap ]d :action GotoPreviousError<CR>
 
-nnoremap <leader>ff :action FindInPath<cr>
-nnoremap <leader>fu :action FindUsages<cr>
+nnoremap <leader>/ :action Find<cr>
+nnoremap <leader>sf :action FindInPath<cr>
+nnoremap <leader>sg :action SearchEverywhere<cr>
 nnoremap <leader>gd :action GotoDeclaration<cr>
 nnoremap <leader>gi :action GotoImplementation<cr>
 nnoremap <leader>gc :action GotoClass<cr>
 nnoremap <leader>gt :action GotoTypeDeclaration<cr>
-nnoremap <leader>gb :action Back<cr>
-nnoremap <leader>gf :action Forward<cr>
 nnoremap <leader>oi :action OptimizeImports<cr>
-nnoremap <leader>qt :action CloseActiveTab<cr>
-nnoremap <leader>de :action ShowErrorDescription<cr>
+nnoremap <leader>bd :action CloseActiveTab<cr>
+nnoremap <leader>e :action ShowErrorDescription<cr>
 
 
 nnoremap <S-h>      :action PreviousTab<cr>
 nnoremap <S-l>      :action NextTab<cr>
 nnoremap K          :action QuickJavaDoc<cr>
 nnoremap D          :action QuickImplementations<cr>
-nnoremap E          :action ShowErrorDescription<cr>
 
 inoremap jk <Esc>
-
 vnoremap jk <Esc>
-vnoremap <A-j> :m .+1<cr>==
-vnoremap <A-k> :m .-1<cr>==
 
-xnoremap J :move '>+1<cr>gv-gv
-xnoremap K :move '<-2<cr>gv-gv
-xnoremap <A-j> :move '>+1<cr>gv-gv
-xnoremap <A-k> :move '<-2<cr>gv-gv
+nnoremap <leader>pv :action
+
+" Increase or decrease font size
+nnoremap <C-=> :action EditorIncreaseFontSize<cr>
+nnoremap <C-->
