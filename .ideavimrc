@@ -111,4 +111,4 @@ nnoremap <leader>pv :action
 
 " Increase or decrease font size
 nnoremap <C-=> :action EditorIncreaseFontSize<cr>
-nnoremap <C-->
+nnoremap <C--> :action EditorDecreaseFontSize<cr>
