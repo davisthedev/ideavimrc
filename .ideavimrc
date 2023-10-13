@@ -7,7 +7,7 @@ set clipboard+=ideaput
 let mapleader = " "
 
 set nu
-set tabstop=2
+set tabstop=3
 set softtabstop=2
 set shiftwidth=2
 set visualbell
@@ -22,7 +22,7 @@ set updatetime=50
 set number
 set showmode
 set relativenumber
-set scrolloff = 10
+set scrolloff = 13
 set guicursor = false
 set ideajoin
 set idearefactormode=keep
@@ -173,4 +173,3 @@ nnoremap <C-=> :action EditorIncreaseFontSize<cr>
 nnoremap <C--> :action EditorDecreaseFontSize<cr>
 
 nnoremap <C-p> :action Up<cr>
-
