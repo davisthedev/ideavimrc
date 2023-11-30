@@ -21,7 +21,7 @@ set timeoutlen = 1000
 set updatetime=50
 set number
 set showmode
-set relativenumber
+" set relativenumber
 set scrolloff = 13
 set guicursor = false
 set ideajoin
@@ -74,11 +74,13 @@ noremap <Leader>d :action Debug<CR>
 noremap <Leader>g :action ShowGitLog<CR>
 " l - +LSP
   " a - Code Action
-  noremap <Leader>la :action ShowIntentionActions<CR>
+  noremap <Leader>la :action ShowIndentionActions<CR>
   " d - Buffer Diagnostics
   " e - Telescope Quickfix
   " f - Format
   noremap <Leader>lf :action ReformatCode<CR>
+  " g - Lazygit
+  nmap <Leader>gg :action ExternalTools.Lazygit<CR>
   " j - Next Diagnostic
   noremap <Leader>lj :action GotoNextError<CR>
   " k - Previous Diagnostic
