@@ -1,177 +1,141 @@
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
 
+"" .ideavimrc - Davis Sanders
+
+"" Base Settings
+"" ========================================================
+
+set scrolloff=16
+set undolevels=1000
+set linenumber
+set relativenumber
+set nu
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set showmode
+set showcmd
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set visualbell
+
+set wrap=false
+set smartindent
+
+set timeoutlen=500
+set updatetime=250
+
+" Use system clipboard
 set clipboard+=unnamed
 set clipboard+=ideaput
 
 let mapleader = " "
 
-set nu
-set tabstop=3
-set softtabstop=2
-set shiftwidth=2
-set visualbell
-set showmode
-set hlsearch
-set ignorecase
-set smartcase
-set incsearch
-set smartcase
-set timeoutlen = 1000
-set updatetime=50
-set number
-set showmode
-" set relativenumber
-set scrolloff = 13
-set guicursor = false
-set ideajoin
-set idearefactormode=keep
-set wrap=false
-set smartindent
-set visualmode
-set cmdmode
-set showmatch
-set undolevels=1000
 
-" New
+"" Plugin Settings
+"" ========================================================
 
-" / - Comment toggle current line
-nnoremap <leader>/ :action CommentByLineComment<CR>
-" ? - Show recent files
-noremap <leader>? :action RecentFiles<CR>
-" c - Close Buffer
-nnoremap <Leader>c :action CloseActiveTab<CR>
-" o - Open closed buffer
-noremap <leader>o :action ReopenClosedTab<cr>
-" e - Explorer
-noremap <Space>e :action ToggleProjectView<CR>
-" f - Find File
-noremap <Leader>f :action GotoFile<CR>
-" h - No Highlight
-noremap <Leader>h :nohl<CR>
-" q - Quit
-"noremap <Leader>q :action Exit<CR>
-" w - Save
-noremap <leader>w :action SaveAll<CR>
-" b - +Buffers
-  " b - Previous
-  noremap <Leader>b :action Back<CR>
-  " D - Sort by directory
-  " e - Pick which buffer to close
-  " f - Find
-  noremap <Leader>bf :action Find<CR>
-  " h - Close all to the left
-  " j - Jump
-  noremap <Leader>bj :action JumpToSource<CR>
-  " L - Sort by Language
-  " l - Close all to the right
-  " n - Next
-  noremap <Leader>bn :action Forward<CR>
-  " W - Save without formatting
-" d - +Debug
-noremap <Leader>d :action Debug<CR>
-" g - +Git
-noremap <Leader>g :action ShowGitLog<CR>
-" l - +LSP
-  " a - Code Action
-  noremap <Leader>la :action ShowIndentionActions<CR>
-  " d - Buffer Diagnostics
-  " e - Telescope Quickfix
-  " f - Format
-  noremap <Leader>lf :action ReformatCode<CR>
-  " g - Lazygit
-  nmap <Leader>gg :action ExternalTools.Lazygit<CR>
-  " j - Next Diagnostic
-  noremap <Leader>lj :action GotoNextError<CR>
-  " k - Previous Diagnostic
-  noremap <Leader>lk :action GotoPreviousError<CR>
-  " o - Optimize imports
-  noremap <leader>lo :action OptimizeImports<CR>
-  " q - Quickfix
-  noremap <leader>lq :action Refactorings.QuickListPopupAction<CR>
-  " r - Rename
-  noremap <Leader>lr :action RenameElement<CR>
-" s - +Search
-  " C - Commands
-  " f - Find File
-  noremap <Leader>sf :action GotoFile<CR>
-  " h - Find Help
-  noremap <Leader>sh :action FindAction<CR>
-  " t - Text
-  noremap <Leader>st :action FindInPath<CR>
-" w - +Window
-  " s - Split the current window horizontally
-  nmap <leader>ws :action SplitHorizontally<cr>
-  " v - Split the current window vertically
-  nmap <leader>wv :action SplitVertically<cr>
-  " c - Close the current split
-  nmap <leader>wc :action Unsplit<cr>
-  " C - Close all splits
-  nmap <leader>wC :action UnsplitAll<cr>
-  " d - Move the current window to the opposite tab group
-  nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
+set surround
+set highlightedyank
+set sneak
+set nerdtree
 
-" Use Q for formatting the current paragraph (or visual selection)
-" Formats a visual selection
-vmap Q gq
-" Formats a paragraph around the cursor
-nmap Q gqap
+" Easymotion settings
+set easymotion
 
-" Toggle distraction free mode (removes UI elements for focused coding)
-nnoremap <C-z> :action ToggleDistractionFreeMode<cr>
-" Reload the .ideavimrc configuration file
-nnoremap <Space>sv :source ~/.ideavimrc<cr>
+"" Key mappings
+"" ========================================================
 
-" Move a visual selection one line down
-vnoremap J :m '>+1<CR>
-" Move a visual selection one line up
-vnoremap K :m '<-2<CR>
-
-" Navigation between splits
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-
-" Indent or unindent a visual selection and keep it selected
-vnoremap < <gv
-vnoremap > >gv
-
-" Navigation between methods
-nnoremap [[ :action MethodUp<CR>
-nnoremap ]] :action MethodDown<CR>
-
-" Go to the declaration of the symbol at the cursor
-nnoremap <leader>gd :action GotoDeclaration<cr>
-" Go to the implementation of the interface or abstract class at the cursor
-nnoremap <leader>gi :action GotoImplementation<cr>
-" Go to class
-nnoremap <leader>gc :action GotoClass<cr>
-" Go to type declaration
-nnoremap <leader>gt :action GotoTypeDeclaration<cr>
-" Go to reference/usage
-nnoremap <Leader>gu :action FindUsages<cr>
-" Show error description
-nnoremap <leader>ge :action ShowErrorDescription<cr>
-" Rename Element
-nnoremap <leader>rn :action RenameElement<cr>
-" Parameter Info
-nnoremap <leader>gh :action ParameterInfo<cr>
-
-" Navigation between tabs
-nnoremap <S-h> :action PreviousTab<cr>
-nnoremap <S-l> :action NextTab<cr>
-
-" Show quick JavaDoc or implementation
-nnoremap K :action QuickJavaDoc<cr>
-nnoremap D :action QuickImplementations<cr>
-
-" Quick switch to normal mode
 inoremap jk <Esc>
 vnoremap jk <Esc>
 
-" Increase or decrease font size
-nnoremap <C-=> :action EditorIncreaseFontSize<cr>
-nnoremap <C--> :action EditorDecreaseFontSize<cr>
+" Tab navigation
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-p> :tabprev<CR>
 
-nnoremap <C-p> :action Up<cr>
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+" Jump between methods
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute macro saved in 'q' register
+nnoremap qj @q
+
+" Popup navigation
+
+inoremap <C-h> <Action>(ParameterInfo)
+
+"" Leader commands
+"" ========================================================
+
+nnoremap <Space>sv :source ~/.ideavimrc<cr>
+
+" Comment lines
+" map <C-/> <action>(CommentByLineComment)
+
+" Open NERDTree (use q to exit)
+map <leader>e :NERDTreeToggle<CR>
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Display options
+map <C-z> <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+
+" Actions
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+map <leader>o <action>(ReopenClosedTab)
+map <leader>h :nohl<CR>
+
+" LSP
+map <leader>lf <action>(ReformatCode)
+map <leader>lo <action>(OptimizeImports)
+
+" File navigation
+map <leader>sf <action>(GotoFile)
+map <leader>sg <action>(FindInPath)
+map <leader><leader> <Action>(RecentFiles)
+map <leader>s. <action>(RecentLocations)
+map <leader>sh <action>(FindAction)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gb <Action>(Back)
+nmap <leader>gf <Action>(Forward)
